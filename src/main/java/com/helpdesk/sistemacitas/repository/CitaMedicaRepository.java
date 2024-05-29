@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface CitaMedicaRepository extends JpaRepository<CitaMedica, Long> {
     List<CitaMedica> findByPacienteId(Long pacienteId);
+
+
 }

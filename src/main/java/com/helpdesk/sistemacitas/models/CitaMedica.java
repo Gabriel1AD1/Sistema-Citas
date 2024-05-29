@@ -20,8 +20,8 @@ public class CitaMedica {
     private LocalDate fecha;
     private String especialidad;
     private String motivo;
+    private String descripcion;
     private Boolean esSeguimiento;
-
     @ManyToOne
     @JoinColumn(name = "paciente_id")
     private Paciente paciente;

@@ -1,5 +1,6 @@
 package com.helpdesk.sistemacitas.services;
 
+import com.helpdesk.sistemacitas.models.CitaMedica;
 import com.helpdesk.sistemacitas.models.Paciente;
 import com.helpdesk.sistemacitas.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class PacienteService {
 
         pacienteRepository.save(paciente);
         return "Cliente Registrado Con Exito";
+    }
+    public Optional<Paciente> findById(Long pacienteId) {
+        return pacienteRepository.findById(pacienteId);
     }
 
     public List<Paciente> findAll() {

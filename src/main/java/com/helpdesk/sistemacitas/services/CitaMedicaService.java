@@ -1,18 +1,25 @@
 package com.helpdesk.sistemacitas.services;
 
 import com.helpdesk.sistemacitas.models.CitaMedica;
+import com.helpdesk.sistemacitas.models.Paciente;
 import com.helpdesk.sistemacitas.repository.CitaMedicaRepository;
+import com.helpdesk.sistemacitas.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CitaMedicaService {
     @Autowired
     private CitaMedicaRepository citaMedicaRepository;
 
+    @Autowired
+    private PacienteService pacienteService;
+
     public CitaMedica registrarCita(CitaMedica citaMedica) {
+        System.out.println(citaMedica.getPaciente().getId());
         // Determinar el tipo de cita (nueva o seguimiento)
         List<CitaMedica> citasAnteriores = citaMedicaRepository.findByPacienteId(citaMedica.getPaciente().getId());
         if (citasAnteriores.isEmpty()) {

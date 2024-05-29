@@ -1,10 +1,7 @@
 package com.helpdesk.sistemacitas.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -13,6 +10,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,5 +20,5 @@ public class Paciente {
     private String apellido;
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private List<Tratamiento> historialTratamientos;
+    private List<CitaMedica> historialTratamientos;
 }

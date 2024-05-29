@@ -17,7 +17,6 @@ public class CitaMedicaController {
 
     @Autowired
     private PacienteService pacienteService;
-
     @GetMapping("/registrarCita")
     public String showForm(Model model) {
         model.addAttribute("citaMedica", new CitaMedica());

@@ -2,29 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Citas Médicas</title>
+    <title>Historial del Paciente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h2 class="mt-4 mb-4">Lista de Citas Médicas</h2>
+    <h2 class="mt-4 mb-4">Historial del Paciente</h2>
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>ID</th>
             <th>Fecha</th>
             <th>Especialidad</th>
-            <th>Paciente</th>
             <th>Motivo</th>
+            <th>Descripción</th>
             <th>Es Seguimiento</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="cita : ${citas}">
-            <td th:text="${cita.id}"></td>
+        <tr th:each="cita : ${paciente.historialTratamientos}">
             <td th:text="${cita.fecha}"></td>
             <td th:text="${cita.especialidad}"></td>
-            <td th:text="${cita.paciente.nombre + ' ' + cita.paciente.apellido}"></td>
+            <td th:text="${cita.motivo}"></td>
             <td th:text="${cita.descripcion}"></td>
             <td th:text="${cita.esSeguimiento ? 'Sí' : 'No'}"></td>
         </tr>

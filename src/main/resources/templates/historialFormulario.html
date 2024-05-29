@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionar Paciente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-4 mb-4">Seleccionar Paciente</h2>
+    <form th:action="@{/historial}" method="post">
+        <div class="form-group">
+            <label for="paciente">Seleccione un paciente:</label>
+            <select class="form-control" id="paciente" name="pacienteId">
+                <option th:each="paciente : ${pacientes}" th:value="${paciente.id}" th:text="${paciente.nombre + ' ' + paciente.apellido}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Mostrar Historial</button>
+    </form>
+    <a href="/" class="btn btn-secondary">Volver al Inicio</a>
+
+</div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

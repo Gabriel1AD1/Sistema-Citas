@@ -10,4 +10,8 @@ public class NotFoundController {
     public String handleNotFound() {
         return "error/404"; // Puedes personalizar la vista de error según tus necesidades
     }
+    @GetMapping("/") // Captura todas las rutas que no están mapeadas
+    public String index() {
+        return "index"; // Puedes personalizar la vista de error según tus necesidades
+    }
 }
