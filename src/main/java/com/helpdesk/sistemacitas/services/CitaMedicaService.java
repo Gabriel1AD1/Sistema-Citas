@@ -3,7 +3,6 @@ package com.helpdesk.sistemacitas.services;
 import com.helpdesk.sistemacitas.models.CitaMedica;
 import com.helpdesk.sistemacitas.models.Paciente;
 import com.helpdesk.sistemacitas.repository.CitaMedicaRepository;
-import com.helpdesk.sistemacitas.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,13 +19,28 @@ public class CitaMedicaService {
 
     public CitaMedica registrarCita(CitaMedica citaMedica) {
         System.out.println(citaMedica.getPaciente().getId());
-        // Determinar el tipo de cita (nueva o seguimiento)
-        List<CitaMedica> citasAnteriores = citaMedicaRepository.findByPacienteId(citaMedica.getPaciente().getId());
-        if (citasAnteriores.isEmpty()) {
-            citaMedica.setEsSeguimiento(false);
-        } else {
-            citaMedica.setEsSeguimiento(true);
+        Paciente paciente = citaMedica.getPaciente();
+
+        // Obtener el historial de citas del paciente
+        List<CitaMedica> citasAnteriores = citaMedicaRepository.findByPacienteId(paciente.getId());
+
+        // Obtener el historial de tratamientos del paciente
+        Optional<Paciente> pacienteOptional = pacienteService.findById(paciente.getId());
+
+        if (pacienteOptional.isPresent()) {
+            paciente = pacienteOptional.get();
+            List<CitaMedica> historialTratamientos = paciente.getHistorialTratamientos();
+
+            // Verificar si el tratamiento es repetido
+            for (CitaMedica cita : historialTratamientos) {
+                if (citaMedica.esTratamientoSimilar(cita)) {
+                    citaMedica.setEsSeguimiento(true);
+                    break;
+                }
+            }
         }
+        citaMedica.setEsSeguimiento(false);
+
         return citaMedicaRepository.save(citaMedica);
     }
 

@@ -11,6 +11,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
+            <th>Id</th>
             <th>Fecha</th>
             <th>Especialidad</th>
             <th>Motivo</th>
@@ -20,6 +21,7 @@
         </thead>
         <tbody>
         <tr th:each="cita : ${paciente.historialTratamientos}">
+            <td th:text="${cita.id}"></td>
             <td th:text="${cita.fecha}"></td>
             <td th:text="${cita.especialidad}"></td>
             <td th:text="${cita.motivo}"></td>
