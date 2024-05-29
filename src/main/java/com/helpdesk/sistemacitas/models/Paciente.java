@@ -1,6 +1,6 @@
 package com.helpdesk.sistemacitas.models;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 import java.util.List;

@@ -2,19 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title> Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: skyblue;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            /* Ajusta otros estilos según sea necesario */
+        }
+
+        .list-group-item {
+            background-color: rgba(255, 255, 255, 0.7); /* Color de fondo transparente */
+            color: navy; /* Color del texto */
+        }
+
+        .list-group-item:hover {
+            background-color: rgba(255, 255, 255, 0.9); /* Cambia el color de fondo cuando se pasa el mouse */
+        }
+    </style>
 </head>
 <body>
 <div class="container">
-    <h1 class="mt-4 mb-4">Dashboard</h1>
+    <center><h1 class="mt-4 mb-4">Dashboard</h1></center>
     <div class="list-group">
         <a href="/registrarCita" class="list-group-item list-group-item-action">Registrar Cita</a>
         <a href="/registrarPaciente" class="list-group-item list-group-item-action">Registrar Paciente</a>
-        <a href="/listarPacientes" class="list-group-item list-group-item-action">Listar Pacientes</a>
-        <a href="/listarCitas" class="list-group-item list-group-item-action">Listar Citas</a>
+        <a href="/pacientes" class="list-group-item list-group-item-action">Listar Pacientes</a>
+        <a href="/citas" class="list-group-item list-group-item-action">Listar Citas</a>
         <a href="/historial" class="list-group-item list-group-item-action">Historial Del Paciente</a>
-
     </div>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
