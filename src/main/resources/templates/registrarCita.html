@@ -8,10 +8,10 @@
 <body>
 <div class="container">
     <h2 class="mt-4 mb-4">Registrar Cita Médica</h2>
-    <form th:action="@{/registrarCita}" th:object="${citaMedica}" method="post">
+    <form id="citaForm" th:action="@{/registrarCita}" th:object="${citaMedica}" method="post">
         <div class="form-group">
             <label for="fecha">Fecha</label>
-            <input type="date" class="form-control" id="fecha" th:field="*{fecha}" required>
+            <input type="text" class="form-control" placeholder="yyyy/MM/dd" id="fecha" th:field="*{fecha}" th:format="'yyyy-MM-dd'" required>
         </div>
         <div class="form-group">
             <label for="paciente">Paciente</label>
@@ -29,13 +29,12 @@
         </div>
         <div class="form-group">
             <label for="motivo">Descripcion Del Motivo</label>
-            <input type="text" class="form-control" id="motivo" th:field="*{descripcion}" required>
+            <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}" required>
         </div>
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>
     <br>
     <a href="/" class="btn btn-secondary">Volver al Inicio</a>
-
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
