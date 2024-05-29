@@ -32,17 +32,22 @@ public class CitaMedicaService {
             List<CitaMedica> historialTratamientos = paciente.getHistorialTratamientos();
 
             // Verificar si el tratamiento es repetido
+            boolean tratamientoRepetido = false;
             for (CitaMedica cita : historialTratamientos) {
                 if (citaMedica.esTratamientoSimilar(cita)) {
-                    citaMedica.setEsSeguimiento(true);
+                    System.out.println("Cita Encontrada");
+                    tratamientoRepetido = true;
                     break;
                 }
             }
+
+            // Establecer esSeguimiento dependiendo de si el tratamiento es repetido
+            citaMedica.setEsSeguimiento(tratamientoRepetido);
         }
-        citaMedica.setEsSeguimiento(false);
 
         return citaMedicaRepository.save(citaMedica);
     }
+
 
     public List<CitaMedica> findAll() {
         return citaMedicaRepository.findAll();

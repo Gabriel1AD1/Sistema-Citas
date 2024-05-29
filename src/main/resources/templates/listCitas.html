@@ -26,7 +26,7 @@
             <td th:text="${cita.especialidad}"></td>
             <td th:text="${cita.paciente.nombre + ' ' + cita.paciente.apellido}"></td>
             <td th:text="${cita.descripcion}"></td>
-            <td th:text="${cita.esSeguimiento ? 'Sí' : 'No'}"></td>
+            <td th:text="${cita.esSeguimiento != null ? (cita.esSeguimiento ? 'Sí' : 'No') : ''}"></td>
         </tr>
         </tbody>
     </table>

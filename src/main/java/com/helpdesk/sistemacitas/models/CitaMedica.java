@@ -32,6 +32,6 @@ public class CitaMedica {
     public boolean esTratamientoSimilar(CitaMedica otraCita) {
         // Define la lógica para determinar si el tratamiento es similar
         // Esto puede incluir comparar tipo de tratamiento, fecha, médico, etc.
-        return this.especialidad.equals(otraCita.especialidad) && this.motivo.equals(otraCita.getMotivo());
+        return this.especialidad.equals(otraCita.especialidad) && this.motivo.equals(otraCita.motivo);
     }
 }
